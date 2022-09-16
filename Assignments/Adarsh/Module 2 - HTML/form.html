@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Instincts 2022 Registration</title>
+        <link href="form.css" rel="stylesheet">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <style>
+            * {
+                text-align: left;
+            }
+        </style>
+        <h3 id="clock" style="text-align: right; color: white;">Time</h3>
+        <div>
+            <header>
+                <h1>Instincts 2022 Registration</h1>
+            </header>
+            <main id ="main" style="align-items: center;">
+                <form id="regForm" style="align-items: center;" onsubmit="javascript:submitAction()">
+                    <label for="name">Name</label><br>
+                    <input class="form" type="text" id="name" name="name" required><br>
+                    <label for="collegeName">College Name</label><br>
+                    <input class="form" type="text" id="collegeName" name="collegeName" required><br>
+                    <label for="collegeAddr">College Address</label><br>
+                    <input class="form" type="text" id="collegeAddr" name="collegeAddr"><br>  
+                    <label for="pincode">PIN Code</label><br>
+                    <input class="form" type="text" id="pincode" name="pincode" pattern="[0-9]{6}" required><br>
+                    <label for="age">Age</label><br>
+                    <input class="form" type="text" id="age" name="age" pattern="[0-9]+"><br>         
+                    <label for="dob">Date of birth</label><br>
+                    <input class="form" type="date" id="dob" name="dob" required><br>    
+                    <label>Please select your gender</label><br>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label><br>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label><br>
+                    <input type="radio" id="other" name="gender" value="other">
+                    <label for="other">Other</label><br><br>
+                    <label for="department">Choose department </label>
+                    <select name="department" id="dept" required>
+                        <option value="CSE">CSE</option>
+                        <option value="ECE">ECE</option>
+                        <option value="EEE">EEE</option>
+                        <option value="IT">IT</option>
+                        <option value="Mechanical">Mechanical</option>
+                        <option value="Civil">Civil</option>
+                        <option value="Chemical">Chemical</option>
+                        <option value="BME">Biomedical</option>
+                    </select> <br>
+                    <label for="phone">Phone number (max. 10 digits)</label><br>
+                    <input class="form" type="phone" id="phone" name="phone" pattern="[0-9]{1,10}" required><br>
+                    <label for="email">E-Mail</label><br>
+                    <input class="form" type="email" id="email" name="email" required><br>    
+                    <label>Programming skills (Drag and drop into the top box)</label>          
+                    <div id="div1" ondrop="drop1(event)" ondragover="allowDrop(event)" style="height: 200px; width: 200px; border: 2px solid black; padding: 10px; border-radius: 0%; margin: 1%;"></div>
+                    <div ondrop="drop2(event)" ondragover="allowDrop(event)" style="height: 200px; width: 200px; border: 2px solid black; padding: 10px; border-radius: 0%; margin: 1%;">
+                        <div class="language" id="C" draggable="true" ondragstart="drag(event)">C</div>
+                        <div class="language" id="CPP" draggable="true" ondragstart="drag(event)">C++</div>
+                        <div class="language" id="Python" draggable="true" ondragstart="drag(event)">Python</div>
+                        <div class="language" id="Java" draggable="true" ondragstart="drag(event)">Java</div>
+                        <div class="language" id="JavaScript" draggable="true" ondragstart="drag(event)">JS</div>
+                        <div class="language" id="HTML/CSS" draggable="true" ondragstart="drag(event)">HTML/CSS</div>
+                    </div>
+                    <label for="hobbies">Hobbies</label><br>
+                    <input type="checkbox" id="reading" name="hobbies" value="Reading">
+                    <label for="reading">Reading</label><br>
+                    <input type="checkbox" id="music" name="hobbies" value="Music">
+                    <label for="music">Music</label><br>
+                    <input type="checkbox" id="sports" name="hobbies" value="Sports">
+                    <label for="sports">Sports</label><br><br>
+                    <label for="letter">Consent letter from college:</label><br>
+                    <input type="file" name="letter" id="letter"><br>
+                    <button type="button" onclick="submitAction()" style="font-size: 10pt; font: inherit; border-radius: 20%; margin-top: 10px; padding: 10px; align-items: center;">Submit</button>
+                    <button type="reset" style="font-size: 10pt; font: inherit; border-radius: 20%; margin-top: 10px; padding: 10px; align-items: center;">Reset</button>
+                </form><br>
+            </main>
+            <footer>
+                <a style="font-size: 20pt;" href="index.html">Go back</a>
+                <h3>Adarsh Sankar, 2022</h3>
+            </footer>
+        </div>
+    </body>
+</html>
