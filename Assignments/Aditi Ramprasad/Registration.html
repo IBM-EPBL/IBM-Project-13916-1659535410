@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;1,100;1,300&display=swap"
+        rel="stylesheet">
+    <html lang="en">
+    <title>Form Assingment</title>
+
+
+    <style>
+        #div1 {
+            width: 100px;
+            height: 200px;
+            margin-left: 150PX;
+            padding: 10px;
+            border: 3px solid #894545;
+            background-color:antiquewhite;
+        }
+
+        #main1 {
+                margin-left: 45%;
+        }
+
+
+        #list1 {
+            margin-left: 280px;
+        }
+
+        #dragDrop {
+            float: left;
+            width: 80px;
+            background-color:#d4d4d4;
+            border: 3px solid #894545;
+        }
+        form{
+            color: #894545;
+        }
+    </style>
+    <script>
+
+        function department() {
+            var x = document.getElementById("dep").value;
+            document.getElementById("new").innerHTML = "Your Department: " + x;
+        }
+        function reset() {
+            document.getElementById("myForm").reset();
+        }
+        function startTime() {
+            const time = new Date();
+            let h = time.getHours();
+            let m = time.getMinutes();
+            let s = time.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+            setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i };
+            return i;
+        }
+
+
+        function tab() {
+            document.write("<table border=1><tr><th>NAME</th><th>COLLEGE NAME</th><th>COLLEGE ADDRESS</th><th>PIN</th><th>AGE</th><th>DOB</th><th>GENDER</th><th>DEPARTMENT</th><th>PHONE NUMBER</th><th>EMAIL ID</th></tr><tr><td>" + document.getElementById('name').value + "</td><td>" + document.getElementById('cname').value + "</td><td>" + document.getElementById('cadd').value + "</td><td>" + document.getElementById('pin').value + "</td><td>" + document.getElementById('age').value + "</td><td>" + document.getElementById('bday').value + "</td><td>" + document.getElementById('gen').value + "</td><td>" + document.getElementById('dep').value + "</td><td>" + document.getElementById('phone').value + "</td><td>" + document.getElementById('email').value + "</td></tr></table>")
+
+        }
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function dragStart(event) {
+            event.dataTransfer.setData("Text", event.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+
+
+    </script>
+
+</head>
+
+<body style="background-image: url('./bg.jpg');background-size:auto; background-repeat: no-repeat;">
+
+
+    </script>
+    <div>
+        <h1 style="text-align: center;font-weight: 700;color: #894545;">Technical Event</h1>
+    </div>
+
+    <div class="line"></div>
+    <!--A divider line-->
+    <h1 style="font-size:25px;text-align:center;color: #894545;">Registration</h1>
+    <form action="" method="post" id="myForm">
+        <div id="time" align="right"
+            style="font-weight:bold ;color:darkblue;font-size:25px;background-color:bisque;float:right;"></div>
+        <div id="main1">
+            <label for="name">Name:</label>
+            <br>
+            <input type="text" id="name" name="fname"
+                onfocus="document.getElementById('name').style.background='lightgrey'"
+                onblur="document.getElementById('name').style.background='lightgrey'"
+                oninvalid="alert('Invalid input for name');" pattern="[A-Za-z]+" required placeholder="John doe">
+            <br>
+            <br>
+            <br>
+            <label for="cname">College Name</label>
+            <br>
+            <input type="text" name="cname" id="cname" pattern="[A-Za-z]+"
+                oninvalid="alert('Invalid input for college name');" required placeholder="SSN College...">
+            <br>
+            <br>
+            <label for="cadd">College Address</label>
+            <br>
+            <textarea name="cadd" id="cadd" cols="30" rows="4" onselect="alert('Text selected');" placeholder="Kelambakkam..."></textarea>
+            <br>
+            <br>
+            <label for="pin">PIN</label>
+            <input type="text" pattern="[0-9]{6}" id="pin" oninvalid="alert('Invalid PIN');" required placeholder="600020">
+            <br>
+            <br>
+            <label for="age">AGE</label>
+            <input type="number" name="age" id="age" onkeypress="document.getElementById('age').style.color='black'"
+                min="18" max="22" placeholder="25">
+            <br>
+            <br>
+            <label for="birthday">DOB:</label>
+            <input type="date" id="bday" name="bday" required>
+            <br>
+            <br>
+            <label for="gen">GENDER</label>
+            <br>
+            <input type="radio" value="Male" name="male" id="gen"> Male <br>
+            <input type="radio" value="Female" name="female" id="gen"> Female <br>
+            <input type="radio" value="Other" name="other" id="gen"> Other
+            <br>
+            <br>
+
+            <label for="dep">DEPARTMENT</label>
+            <br>
+            <select name="dep" id="dep" onchange="department()" required>
+                <option value="CSE">CSE</option>
+                <option value="IT">IT</option>
+                <option value="ECE">ECE</option>
+                <option value="BME">BME</option>
+                <option value="EEE">EEE</option>
+                <option value="CHEM">CHEM</option>
+                <option value="MECH">MECH</option>
+            </select>
+            <br>
+            <br>
+            <p id="new"></p>
+            <label for="phone">PHONE NUMBER</label>
+            <br>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" oninvalid="alert('Phone number invalid');"
+                required placeholder="9876540932">
+            <br>
+            <br>
+            <label for="email">EMAIL</label>
+            <br>
+            <input type="email" id="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required placeholder="abc@gmail.com">
+            <br>
+            <br>
+            <br>
+            <label for="email">HOBBIES</label>
+            <br>
+            <input type="checkbox" value="basketball" id="hobby1" name="hobby1">
+            <label for="hobby1">Basketball</label>
+            <input type="checkbox" value="reading" id="hobby2" name="hobby2">
+            <label for="hobby2">Reading</label>
+            <input type="checkbox" id="hobby3" name="hobby3">
+            <label for="hobby3">Painting</label>
+            <input type="checkbox" id="hobby4" name="hobby4">
+            <label for="hobby4">Baking</label>
+            <br>
+            <br>
+            <br>
+            <a>PROGRAMMING LANGUAGE(Drag and drop)</a>
+            <br>
+            <br>
+
+            <br>
+
+            <ul id="dragDrop" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <li ondragstart="dragStart(event)" draggable="true" id="Li0">Python</li>
+                <br>
+                <li ondragstart="dragStart(event)" draggable="true" id="Li1">Java</li>
+                <br>
+                <li ondragstart="dragStart(event)" draggable="true" id="Li2">C</li>
+                <br>
+                <li ondragstart="dragStart(event)" draggable="true" id="Li3">C++</li>
+                <br>
+            </ul>
+            <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+            <br>
+            <label for="myfile">Upload Consent letter</label>
+            <br>
+            <input type="file" id="myfile" name="myfile"><br><br>
+            <br>
+            <br>
+            <input type="submit" value="Check" style="color: #894545;border-radius: 20px;border-style: solid;">
+            <input type="submit" value="Submit" onclick="tab()"style="color: #894545;border-radius: 20px;border-style: solid;">
+            <input type="button" value="Reset" onClick="reset()"style="color: #894545;border-radius: 20px;border-style: solid;">
+
+    </form>
+    </div>
+    <footer style="color: rgba(165, 42, 42, 100); font-size: 15px; bottom: 0%; position: fixed;">
+        <P>©Copyright Inc.</P>
+    </footer>
+</body>
+
+</html>
