@@ -1,0 +1,113 @@
+{% extends "base.html" %}{% block title %}Sign Up{% endblock %} {% block content
+%}
+<div class="row">
+  <div class="col-md-6">
+    <img
+      src="{{ url_for('static', filename='images/splash-screen.png') }}"
+      class="img-fluid"
+      alt="Responsive image"
+    />
+  </div>
+  <div class="col-md-6">
+    <h1 class="display-4">Sign up</h1>
+    <p class="lead">SIgn up for an account.</p>
+    <hr class="my-4" />
+    <form action="/sign-up" method="post">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Enter email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="name">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="firstName"
+          name="firstName"
+          placeholder="Enter first name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="name">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="lastName"
+          name="lastName"
+          placeholder="Enter last name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="dob">Date of Birth</label>
+        <input
+          type="date"
+          class="form-control"
+          id="dob"
+          name="dob"
+          placeholder="Enter date of birth"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="sex">Sex</label>
+        <label class="radio-inline">
+          <input type="radio" name="sex" value="female" />Female</label
+        >
+        <label class="radio-inline"
+          ><input type="radio" name="sex" value="male" />Male</label
+        >
+      </div>
+      <div class="form-group">
+        <label for="height">Height (in cms)</label>
+        <input
+          type="number"
+          class="form-control"
+          id="height"
+          name="height"
+          placeholder="Enter height"
+        />
+      </div>
+      <div class="form-group">
+        <label for="weight">Weight (in kgs)</label>
+        <input
+          type="number"
+          class="form-control"
+          id="weight"
+          name="weight"
+          placeholder="Enter weight"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          placeholder="Password"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password2">Confirm Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password2"
+          name="password2"
+          placeholder="Confirm password"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Sign up!</button>
+    </form>
+    <hr class="my-4" />
+  </div>
+</div>
+
+{% endblock %}

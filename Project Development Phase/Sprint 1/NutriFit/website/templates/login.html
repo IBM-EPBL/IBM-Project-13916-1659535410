@@ -1,0 +1,41 @@
+{% extends "base.html" %}{% block title %}Login{% endblock %} {% block content
+%}
+<div class="row">
+  <div class="col-md-6">
+    <img
+      src="{{ url_for('static', filename='images/splash-screen.png') }}"
+      class="img-fluid"
+      alt="Responsive image"
+    />
+  </div>
+  <div class="col-md-6">
+    <h1 class="display-4">Login</h1>
+    <p class="lead">Login to your account.</p>
+    <hr class="my-4" />
+    <form action="/login" method="POST">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Enter email"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          placeholder="Password"
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+      <hr class="my-4" />
+    </form>
+  </div>
+</div>
+{% endblock %}
