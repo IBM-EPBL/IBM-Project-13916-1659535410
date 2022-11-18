@@ -1,0 +1,54 @@
+{% extends "base2.html" %}
+{% block MainContent %}
+<style>
+  html{
+    font-family: Cabin;
+  }
+  h1{
+      color: rgba(45, 47, 52, 1);
+    }
+    label{
+        font-family: cabin;
+        font-weight: bold;
+    }
+</style>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+    <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom" style="justify-content: center;">
+        <h1 class="h2" style="font-family: cabin;">Add a Meal</h1>
+      </div>
+      <div class=".d-flex row" style="justify-content: center;";>
+        <div class= "card" style="background-color: #F8F9FA; width: 800px; padding-left: 250px;padding-top: 50px; padding-bottom: 50px;" >
+          <h1 class="h2" style="font-family: cabin;">Add a Meal by entering name</h1>
+            <form method="post">
+                <div class="form-group">
+                    <label for="date">Select Date</label>
+                    <input type="date" class="form-control" id="date" style="width: 50%;" required>
+                  </div>
+                <div class="form-group">
+                  <label for="Name">Enter Food Name </label>
+                  <input type="text" class="form-control" id="name" placeholder="Salad" style="width: 50%;" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="background-color: #7C2F45; border:#7C2F45;width: 150px;height: 45px; font-size: 16px; font-weight: medium;">Submit</button>
+              </form>
+        </div>
+        <div class= "card" style="background-color: #F8F9FA; width: 800px; padding-left: 250px;padding-top: 50px; padding-bottom: 50px;" >
+          <h1 class="h2" style="font-family: cabin;">Add a Meal by taking a picture</h1>
+          <h1 class="h4" style="font-family: cabin;">Use our AI-food detection to automatically recognise your meal</h1>
+          <form method="post">
+              <div class="form-group">
+                  <label for="date">Select Date</label>
+                  <input type="date" class="form-control" id="date" style="width: 50%;" required>
+                </div>
+              <div class="form-group">
+                  <label for="image">Upload a picture of your meal</label>
+                  <input type="file" class="form-control-file" id="image" style="width: 50%;">
+                </div>
+              <button type="submit" class="btn btn-primary" style="background-color: #7C2F45; border:#7C2F45;width: 150px;height: 45px; font-size: 16px; font-weight: medium;">Submit</button>
+            </form>
+      </div>
+  <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+</main>
+
+</body>
+</html>
+{% endblock %}

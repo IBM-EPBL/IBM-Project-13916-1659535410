@@ -1,0 +1,71 @@
+{% extends "base2.html" %}
+{% block MainContent %}
+<style>
+  html{
+    font-family: Cabin;
+  }
+  h1{
+      color: rgba(45, 47, 52, 1);
+    }
+    td{
+      font-weight: regular;
+    }
+    th{
+      font-weight: semibold;
+    }
+</style>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+          <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+            <h1 class="h2" style="font-family: cabin;">Profile</h1>
+            <h3 class="h3" style="font-family: cabin;">Hi {{ user.first_name }}</h3>
+            <!-- <div class="btn-toolbar mb-2 mb-md-0">
+              <button class="btn btn-sm btn-outline-secondary dropdown-toggle" style="color: #7C2F45;
+              ;">
+                <span data-feather="calendar"></span>
+                This week
+              </button>
+            </div> -->
+          </div>
+          <div class=".d-flex row" style="justify-content: center;";>
+            <div class= "card" style="background-color: #F8F9FA; width: 800px; padding-left: 250px;padding-top: 50px; padding-bottom: 50px;" >
+              <table style="color:rgba(45, 47, 52, 1) ; font-family: Cabin;">
+                <tr>
+                  <th>First Name:</th>
+                  <td>{{ user.first_name }}</td>
+                </tr>
+                <tr>
+                  <th>Last Name:</th>
+                  <td>{{ user.last_name }}</td>
+                </tr>
+                <tr>
+                  <th>Email:</th>
+                  <td>{{ user.email }}</td>
+                </tr>
+                <tr>
+                  <th>Gender:</th>
+                  <td>{{ user.gender }}</td>
+                </tr>
+                <tr>
+                  <th>Height:</th>
+                  <td>{{ user.height }}</td>
+                </tr>
+                <tr>
+                  <th>Weight:</th>
+                  <td>{{ user.weight }}</td>
+                </tr>
+                <tr>
+                  <th>Weight Goal:</th>
+                  <td>{{ user.weightGoal }}</td>
+                </tr>
+              </table>
+            </div>
+            <a class="btn btn-lg btn-primary" href="/logout" role="button" style="background-color: #7C2F45; border:#7C2F45;width: 150px;height: 45px; font-size: 16px; font-weight: medium; margin-top: 50px;">Logout</a>
+          </div>
+          <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+        </main>
+
+  </body>
+</html>
+
+{% endblock %}
+
