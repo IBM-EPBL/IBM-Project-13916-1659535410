@@ -85,12 +85,12 @@ def sign_up():
                 ibm_db.execute(stmt)
                 flash('Account created!', category='success')
                 message = Mail(
-                    from_email='adarsh19008@cse.ssn.edu.in',
+                    from_email='',
                     to_emails=email,
                     subject='Welcome to NutriFit!',
                     html_content='<strong>Thank you for signing up for NutriFit! We hope you enjoy your experience with us.</strong>')
                 try:
-                    sg = sendgrid.SendGridAPIClient('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')
+                    sg = sendgrid.SendGridAPIClient('')
                     response = sg.send(message)
                     print(response.status_code)
                     print(response.body)
