@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/fontawesome.min.css"
+      integrity="sha384-z4tVnCr80ZcL0iufVdGQSUzNvJsKjEtqYZjiQrrYKlpGow+btDHDfQWkFjoaz/Zr"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,500;0,700;1,100;1,300&display=swap" rel="stylesheet"/>
+    <title>{% block title %}Home{% endblock %}</title>
+    <style>
+      html{
+        font-family: Cabin;
+      }
+      body{
+        background-color: rgba(255, 234, 240, 1);
+      }
+      h1,h2,h3,h4,h5,h6{
+      color: rgba(45, 47, 52, 1);
+    }
+    p{
+      color: rgba(45, 47, 52, 1);
+    }
+    </style>
+  </head>
+  <body>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: rgba(0, 0, 0, 0.7)">
+      <a class="navbar-brand" href="/" style="color: rgba(245, 247, 250, 1); font-weight: bold; font-size: 20px;">nutrifit.</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav ml-auto">
+          {% if current_user.is_authenticated %}
+          <a class="nav-item nav-link" id="logout" href="/dashboard" style="color: rgba(245, 247, 250, 1); font-weight: semibold; font-size: 16px;">Profile</a>
+          <a class="nav-item nav-link" id="home" href="/" style="color: rgba(245, 247, 250, 1); font-weight: semibold; font-size: 16px;">Home</a>
+          {% else %}
+          <a class="nav-item nav-link" id="login" href="/login" style="color: rgba(245, 247, 250, 1); font-weight: semibold; font-size: 16px;">Login</a>
+          <a class="nav-item nav-link" id="signUp" href="/sign-up" style="color: rgba(245, 247, 250, 1); font-weight: semibold; font-size: 16px;">Sign Up</a>
+          {% endif %}
+      </div>
+    </nav>
+  </header>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <div class="container">{% block content %}{% endblock %}</div>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='index.js' ) }}"
+    ></script>
+  </body>
+          
+    <!-- FOOTER -->
+    <footer class="container" style="background-color:rgba(255, 234, 240, 1) ;">
+      <p class="float-right"><a href="#" style="color: #7C2F45;">Back to top</a></p>
+      <p style="color: rgba(45, 47, 52, 1);">&copy; 2017-2018 nutrifit, Inc. &middot; <a href="#" style="color: #7C2F45;">Privacy</a> &middot; <a href="#" style="color: #7C2F45;">Terms</a></p>
+    </footer>
+</html>
