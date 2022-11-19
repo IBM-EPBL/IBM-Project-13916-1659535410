@@ -1,0 +1,81 @@
+{% extends "base.html" %}{% block title %}Nutrition Assistant{% endblock %}
+{% block content %}
+<style>
+    a{
+        color: #7C2F45;
+    }
+    h1{
+      color: rgba(45, 47, 52, 1);
+    }
+    p{
+      color: rgba(45, 47, 52, 1);
+    }
+</style>
+<div class="container-fluid" style="margin-top: 8%;">
+    <div class="row">
+      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky" style="width: 500px;" >
+          <ul class="nav flex-column" style="justify-content: center">
+            <li class="nav-item">
+              <a class="nav-link active" href="/dashboard">
+                <span data-feather="users"></span>
+                Profile
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <span data-feather="home"></span>
+                Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/add-meal">
+                <span data-feather="shopping-cart"></span>
+                Add meals
+              </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/add-custom-meal">
+                  <span data-feather="shopping-cart"></span>
+                  Custom meals
+                </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/reports">
+                <span data-feather="bar-chart-2"></span>
+                Reports
+              </a>
+            </li>
+            <!-- <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span data-feather="layers"></span>
+                Integrations
+              </a>
+            </li> -->
+          </ul>
+          <ul class="nav flex-column mb-2">
+            <li class="nav-item">
+              <a class="nav-link" href="/articles">
+                <span data-feather="file-text"></span>
+                Latest Articles
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      {% block MainContent %}Home{% endblock %}
+    </div>
+  </div>
+    <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <script src="../../../../assets/js/vendor/popper.min.js"></script>
+        <script src="../../../../dist/js/bootstrap.min.js"></script>
+    
+        <!-- Icons -->
+        <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+        <script>
+          feather.replace()
+        </script>
+
+{% endblock %}

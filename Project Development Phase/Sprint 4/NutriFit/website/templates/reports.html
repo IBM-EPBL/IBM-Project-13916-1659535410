@@ -1,0 +1,49 @@
+{% extends "base2.html" %}
+{% block MainContent %}
+<style>
+  html{
+    font-family: Cabin;
+  }
+  h1{
+      color: rgba(45, 47, 52, 1);
+    }
+    label{
+        font-family: cabin;
+        font-weight: bold;
+    }
+</style>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+    <div class="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom" style="justify-content: center;">
+        <h1 class="h2" style="font-family: cabin;">Track your history</h1>
+      </div>
+      <div class=".d-flex row" style="justify-content: center;";>
+        {% if reports %}
+        {% for report in reports %}
+        <div class= "card" style="background-color: #F8F9FA; width: 800px; padding-left: 100px;padding-top: 50px; padding-bottom: 50px;" >
+          <table style="color:rgba(45, 47, 52, 1) ; font-family: Cabin;">
+            <tr>
+              <th>Date</th>
+              <th>Calories</th>
+              <th>Carbohydrates</th>
+              <th>Proteins</th>
+              <th>Fats</th>
+            </tr>
+            <tr>
+              <td><a href='/get-day-report?date={{ report.date }}' style="color: rgba(45, 47, 52, 1);">{{ report.date }}</a></td>
+              <td>{{ report.calories }} Kcals</td>
+              <td>{{ report.carbs }} g</td>
+              <td>{{report.protein}} g</td>  
+              <td>{{report.fat}} g</td>
+            </tr>
+          </table>
+        </div>
+        {% endfor %}
+        {% else %}
+        <h1 class="h4" style="font-family: cabin;">No records found!</h1>
+        {% endif %}
+  <canvas class="my-4" id="myChart" width="900" height="380"></canvas>
+</main>
+
+</body>
+</html>
+{% endblock %}
