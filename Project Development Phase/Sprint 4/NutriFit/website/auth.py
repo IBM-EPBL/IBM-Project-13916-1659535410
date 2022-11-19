@@ -90,7 +90,7 @@ def sign_up():
                     subject='Welcome to NutriFit!',
                     html_content='<strong>Thank you for signing up for NutriFit! We hope you enjoy your experience with us.</strong>')
                 try:
-                    sg = sendgrid.SendGridAPIClient('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')
+                    sg = sendgrid.SendGridAPIClient('')
                     response = sg.send(message)
                     print(response.status_code)
                     print(response.body)
